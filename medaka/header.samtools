@@ -1,0 +1,32 @@
+@HD	VN:1.6	SO:coordinate
+@SQ	SN:chr1	LN:248387328
+@SQ	SN:chr2	LN:242696752
+@SQ	SN:chr3	LN:201105948
+@SQ	SN:chr4	LN:193574945
+@SQ	SN:chr5	LN:182045439
+@SQ	SN:chr6	LN:172126628
+@SQ	SN:chr7	LN:160567428
+@SQ	SN:chr8	LN:146259331
+@SQ	SN:chr9	LN:150617247
+@SQ	SN:chr10	LN:134758134
+@SQ	SN:chr11	LN:135127769
+@SQ	SN:chr12	LN:133324548
+@SQ	SN:chr13	LN:113566686
+@SQ	SN:chr14	LN:101161492
+@SQ	SN:chr15	LN:99753195
+@SQ	SN:chr16	LN:96330374
+@SQ	SN:chr17	LN:84276897
+@SQ	SN:chr18	LN:80542538
+@SQ	SN:chr19	LN:61707364
+@SQ	SN:chr20	LN:66210255
+@SQ	SN:chr21	LN:45090682
+@SQ	SN:chr22	LN:51324926
+@SQ	SN:chrX	LN:154259566
+@SQ	SN:chrY	LN:62460029
+@SQ	SN:chrM	LN:16569
+@SQ	SN:BB41C	LN:220
+@PG	ID:minimap2	PN:minimap2	VN:2.24-r1122	CL:minimap2 -ax map-ont -t 8 -m 1 -n 10 -s 20 chm13v2_BB41.mmi FAU48563_pass_f5d283ba_0_filtered_split.fastq.gz
+@PG	ID:samtools	PN:samtools	PP:minimap2	VN:1.15.1	CL:samtools sort -o FAU48563_pass_f5d283ba_0_filtered_split.bam tmp.sam
+@PG	ID:samtools.1	PN:samtools	PP:samtools	VN:1.15.1	CL:samtools view -b -F 256 FAU48563_pass_f5d283ba_0_filtered_split.bam
+@PG	ID:samtools.2	PN:samtools	PP:samtools.1	VN:1.15.1	CL:samtools view -b -o FAU48563_pass_f5d283ba_0_filtered_split.NM_50_mapq_20.bam --input-fmt-option filter=[NM]<50 && mapq >20 FAU48563_pass_f5d283ba_0_filtered_split.primary_mapped.bam
+@PG	ID:samtools.3	PN:samtools	PP:samtools.2	VN:1.15	CL:samtools view -H /hpc/compgen/projects/gw_cfdna/snv_qs/raw/CYC000025-extended-data/CycasConsensus/MapqAndNMFilter/FAU48563_pass_f5d283ba_0_filtered_split.NM_50_mapq_20.bam

@@ -1,0 +1,26 @@
+# other git repositories to ignore
+/hpc/compgen/projects/gw_cfdna/snv_qs/lambda_analysis/.git
+/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore_benchmark/.git
+/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-snv/.git
+*/untitled_project/*
+
+# file extensions to ignore
+**.vcf
+**.fa
+**.fasta
+**.hdf5
+**.h5
+**.fastq
+**.fq
+**.bam
+**.bai
+**.sam
+**.out
+**.txt
+**.fai
+**.png
+**.csv
+**.json
+**.gz
+**.index
+

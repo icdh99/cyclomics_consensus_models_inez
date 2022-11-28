@@ -1,0 +1,13 @@
+sbatch -o gw_12.out -J gw_12 make_matrix.sh 12
+sbatch -o gw_13.out -J gw_13 make_matrix.sh 13
+sbatch -o gw_14.out -J gw_14 make_matrix.sh 14
+sbatch -o gw_15.out -J gw_15 make_matrix.sh 15
+sbatch -o gw_16.out -J gw_16 make_matrix.sh 16
+sbatch -o gw_17.out -J gw_17 make_matrix.sh 17
+sbatch -o gw_18.out -J gw_18 make_matrix.sh 18
+sbatch -o gw_19.out -J gw_19 make_matrix.sh 19
+sbatch -o gw_20.out -J gw_20 make_matrix.sh 20
+sbatch -o gw_21.out -J gw_21 make_matrix.sh 21
+sbatch -o gw_22.out -J gw_22 make_matrix.sh 22
+sbatch -o gw_X.out -J gw_X make_matrix.sh X
+sbatch -o gw_Y.out -J gw_Y make_matrix.sh Y
