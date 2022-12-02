@@ -17,8 +17,9 @@ from natsort import natsorted
 
 # print(np.array_equal(x1, x2))
 
-folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/predict_cyclomics_clean'
-folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_muts_hdf5'
+folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/predict_cyclomics_clean_maskedrefbase'
+# folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_muts_hdf5'
+folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_wgs_hdf5_maskedrefbase'
 
 cnn_region1 = 0
 cnn_region2 = 0
@@ -33,23 +34,25 @@ dnn_region5 = 0
 
 paths = [os.path.join(folder, file) for file in os.listdir(folder)]
 paths = natsorted(paths)
+total = 0
 for file in paths:
     # print(file)
     with h5py.File(file) as p:
         nr = len(p.keys())
         print(f'File: {file}\tNumber of keys: {nr}')
+        total += nr
         # a = p.keys()[0
-        if 'cnn' in file:
-            if 'region1' in file:
-                cnn_region1 += nr
-            if 'region2' in file:
-                cnn_region2 += nr
-            if 'region3' in file:
-                cnn_region3 += nr
-            if 'region4' in file:
-                cnn_region4 += nr
-            if 'region5' in file:
-                cnn_region5 += nr
+        # if 'cnn' in file:
+        #     if 'region1' in file:
+        #         cnn_region1 += nr
+        #     if 'region2' in file:
+        #         cnn_region2 += nr
+        #     if 'region3' in file:
+        #         cnn_region3 += nr
+        #     if 'region4' in file:
+        #         cnn_region4 += nr
+        #     if 'region5' in file:
+        #         cnn_region5 += nr
         if 'dnn' in file:
             if 'region1' in file:
                 dnn_region1 += nr
@@ -77,3 +80,5 @@ print(f'dnn region2: {dnn_region2}')
 print(f'dnn region3: {dnn_region3}')
 print(f'dnn region4: {dnn_region4}')
 print(f'dnn region5: {dnn_region5}')
+
+print(f'total: {total}')
