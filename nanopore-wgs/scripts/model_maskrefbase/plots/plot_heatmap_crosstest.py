@@ -21,10 +21,9 @@ test_dnn_15 = [model_dnn_5[2], model_dnn_10[2], model_dnn_15[2], model_dnn_20[2]
 test_dnn_20 = [model_dnn_5[3], model_dnn_10[3], model_dnn_15[3], model_dnn_20[3], model_dnn_all[3], majority_vote[3] ]
 test_dnn_all = [model_dnn_5[4], model_dnn_10[4], model_dnn_15[4], model_dnn_20[4], model_dnn_all[4], majority_vote[4]]
 
-
 labels = ['3-5X', '6-10X','11-15X','16-20','3-20X', 'Majority vote']
 
-plt.figure(3)
+plt.figure(1)
 x = np.arange(len(labels)) # label locations
 width = 0.7
 plt.style.use('seaborn-muted')
@@ -45,17 +44,41 @@ ax.set_xticks(x, labels)
 ax.legend()
 # fig.tight_layout()
 plt.savefig('Crosstest_DNN.png', bbox_inches="tight", dpi=500)
+plt.close()
 
+print(plt.style.available)
+plt.figure(2)
+x = np.arange(len(labels)) # label locations
+width = 0.7
+plt.style.use('seaborn-talk')
+# cmap = sns.color_palette("Set2")
+sns.color_palette("Set2")
+fig, ax = plt.subplots()
+ax.set_yscale('log')
+# plt.title('False positive rate (FPR) for prediction of test data\n with DNN trained on different coverages')
+# plt.ylim(0,0.005)
+rects1 = ax.bar(x-2*(width/5),test_dnn_5, width/5, label='Test set DNN 3-5X')
+rects2 = ax.bar(x-width/5,test_dnn_10, width/5, label='Test set DNN 6-10X')
+rects3 = ax.bar(x,test_dnn_15, width/5, label='Test set DNN 11-15X')
+rects4 = ax.bar(x+width/5,test_dnn_20, width/5, label='Test set DNN 16-20X')
+rects5 = ax.bar(x+2*(width/5),test_dnn_all, width/5, label='Test set DNN 3-20X')
+ax.set_ylabel('False Positive Rate (%)')
+ax.set_xlabel('Coverage of model')
+ax.set_xticks(x, labels)
+ax.legend()
+print(plt.ylim())
+plt.ylim((0.0006779553064083945, 0.3983248152750319))
+print(plt.ylim())
+plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+# fig.tight_layout()
+plt.savefig('Crosstest_DNN_new.png', bbox_inches="tight", dpi=500)
+plt.close()
 
 
 
 '''
 Plot False Positive Rate for CNN crosstest model coverage vs. test data coverage
 '''
-plt.figure(7)
-plt.style.use('seaborn-muted')
-fig, ax = plt.subplots()
-
 model_cnn_5 = [0.0018262301264249672,0.0015070236798100422,  0.002194784791497539, 0.012495992712562999,0.00575087357732309]
 model_cnn_10 = [0.3054206836783206, 0.01987803083023828, 0.0030470974066314207,  0.0028694630017919234,  0.05833963471044422]
 model_cnn_15 = [0.03736056900969292, 0.006670594510467162,0.0031690446747802553,  0.0028572638275782313, 0.009246537267916062 ]
@@ -69,8 +92,9 @@ test_cnn_15 = [model_cnn_5[2], model_cnn_10[2], model_cnn_15[2], model_cnn_20[2]
 test_cnn_20 = [model_cnn_5[3], model_cnn_10[3], model_cnn_15[3], model_cnn_20[3], model_cnn_all[3] , majority_vote[3] ]
 test_cnn_all = [model_cnn_5[4], model_cnn_10[4], model_cnn_15[4], model_cnn_20[4], model_cnn_all[4], majority_vote[4]  ]
 
-
-
+plt.figure(3)
+plt.style.use('seaborn-muted')
+fig, ax = plt.subplots()
 plt.title('False positive rate (FPR) for prediction of test data\n with CNN trained on different coverages')
 ax.bar(x-2*(width/5), test_cnn_5, width/5, label='Test set CNN 3-5X')
 ax.bar(x-width/5, test_cnn_10, width/5, label='Test set CNN 6-10X')
@@ -84,10 +108,32 @@ ax.set_xlabel('Coverage of model')
 ax.set_xticks(x, labels)
 ax.legend()
 ax.set_yscale('log')
-
 plt.savefig('Crosstest_CNN.png', bbox_inches="tight", dpi=500)
+plt.close()
 
+plt.figure(4)
 
+fig, ax = plt.subplots()
+# plt.title('False positive rate (FPR) for prediction of test data\n with CNN trained on different coverages')
+plt.style.use('seaborn-talk')
+ax.bar(x-2*(width/5), test_cnn_5, width/5, label='Test set CNN 3-5X')
+ax.bar(x-width/5, test_cnn_10, width/5, label='Test set CNN 6-10X')
+ax.bar(x, test_cnn_15, width/5, label='Test set CNN 11-15X')
+ax.bar(x+width/5, test_cnn_20, width/5, label='Test set CNN 16-20X')
+ax.bar(x+2*(width/5), test_cnn_all, width/5, label='Test set CNN 3-20X')
+# sns.color_palette("Set2")
+# plt.ylim(0,1)
+fig.supylabel('False Positive Rate (%)')
+ax.set_xlabel('Coverage of model')
+ax.set_xticks(x, labels)
+ax.legend()
+plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+ax.set_yscale('log')
+print(plt.ylim())
+plt.ylim((0.0006779553064083945, 0.3983248152750319))
+print(plt.ylim())
+plt.savefig('Crosstest_CNN_new.png', bbox_inches="tight", dpi=500)
+plt.close()
 
 
 '''

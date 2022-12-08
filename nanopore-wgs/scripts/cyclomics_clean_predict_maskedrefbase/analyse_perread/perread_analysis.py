@@ -41,37 +41,39 @@ df_concat_overlap = df_concat[df_concat['region_readid'].isin(items)]
 print(df_concat_overlap['model-cov'].value_counts(ascending=True))
 
 # # CALCULATE MEDIAN OVERLAP PER MODEL
-# print(f'median score per model')
-# print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["score"].median()}')
-# print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["score"].median()}')
-# print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["score"].median()}')
-# print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["score"].median()}')
-# print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["score"].median()}')
-# print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["score"].median()}')
+print(f'median score per model')
+print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["score"].median()}')
+print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["score"].median()}')
+print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["score"].median()}')
+print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["score"].median()}')
+print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["score"].median()}')
+print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["score"].median()}')
 
-# print(f'median q score per model')
-# print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["q_score"].median()}')
-# print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["q_score"].median()}')
-# print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["q_score"].median()}')
-# print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["q_score"].median()}')
-# print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["q_score"].median()}')
-# print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["q_score"].median()}')
+print(f'median q score per model')
+print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["q_score"].median()}')
+print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["q_score"].median()}')
+print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["q_score"].median()}')
+print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["q_score"].median()}')
+print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["q_score"].median()}')
+print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["q_score"].median()}')
 
-# print(f'mean score per model')
-# print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["score"].mean()}')
-# print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["score"].mean()}')
-# print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["score"].mean()}')
-# print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["score"].mean()}')
-# print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["score"].mean()}')
-# print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["score"].mean()}')
+print(f'mean score per model')
+print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["score"].mean()}')
+print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["score"].mean()}')
+print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["score"].mean()}')
+print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["score"].mean()}')
+print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["score"].mean()}')
+print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["score"].mean()}')
 
-# print(f'mean q score per model')
-# print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["q_score"].mean()}')
-# print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["q_score"].mean()}')
-# print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["q_score"].mean()}')
-# print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["q_score"].mean()}')
-# print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["q_score"].mean()}')
-# print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["q_score"].mean()}')
+print(f'mean q score per model')
+print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["q_score"].mean()}')
+print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["q_score"].mean()}')
+print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["q_score"].mean()}')
+print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["q_score"].mean()}')
+print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["q_score"].mean()}')
+print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["q_score"].mean()}')
+
+exit()
 
 # NR OF READS PER MODEL PER COVERAGE BIN NON OVERLAP
 plt.figure(1)
@@ -98,19 +100,57 @@ labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16
 ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
 plt.savefig('plot1_nrreads_overlap.png', bbox_inches='tight')
 plt.close()
+ 
+# NR OF READS PER MODEL PER COVERAGE BIN OVERLAP ONLY CYCAS
+
+
+
+plt.figure(1)
+fig, ax = plt.subplots(figsize=(16.7, 8.27))
+coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
+hue_order = ['Cycas Consensus']
+ax = sns.countplot(data=df_concat_overlap, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19),)
+plt.xlabel('Nr. copies per CyclomicsSeq read')
+plt.ylabel('Count')
+labels = [f'Cycas Consensus']
+ax.get_legend().remove()
+# ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
+plt.savefig('plot1_nrreads_overlap_cycasonly.png', bbox_inches='tight')
+plt.close()
+
+
 
 # MEAN ERROR RATE ALL READS PER MODEL OVERLAP/NON OVERLAP
 plt.figure(2)
+
+        
+cycas = '#a6cee3'
+dnnc5 = '#1f78b4'
+dnnc10 = '#b2df8a'
+dnnc15 = '#33a02c'
+dnnc20 = '#fb9a99'
+dnnc100 = '#e31a1c'
+cnnc5 = '#fdbf6f'
+cnnc10 = '#ff7f00'
+cnnc15 = '#cab2d6'
+cnnc20 = '#6a3d9a'
+cnnc100 = '#ffff99'
+expected_brown = '#b15928'
+palette = [cycas, dnnc5, dnnc10, dnnc15, dnnc20, dnnc100, cnnc5, cnnc10, cnnc15, cnnc20, cnnc100]
+
 fig, ax = plt.subplots(figsize=(16.7, 8.27))
 coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
 hue_order = ['Cycas Consensus', 'c5', 'c10', 'c15', 'c20', 'c100']
-sns.barplot(data=df_concat_overlap, x='read-cov', hue='model-cov', y ='score', order=coverage, hue_order=hue_order, palette = sns.color_palette("Paired", 6))
+ax = sns.barplot(data=df_concat_overlap, x='read-cov', hue='model-cov', y ='score', order=coverage, hue_order=hue_order, palette=sns.color_palette(palette, 6))
 plt.xlabel('Nr. copies per CyclomicsSeq read')
 plt.ylabel('Per-read error rate')
 labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16-20X', f'DNN 3-20X']
-ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
+h, l = ax.get_legend_handles_labels()
+ax.legend(h, labels, loc='upper right', bbox_to_anchor=(1,1), title = 'Model type')
 plt.savefig('plot2_meanerrorrate_allreads_overlap_percovbin.png', bbox_inches='tight')
 plt.close()
+
+exit()
 
 plt.figure(2)
 fig, ax = plt.subplots(figsize=(8,4))
