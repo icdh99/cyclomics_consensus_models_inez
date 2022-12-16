@@ -39,8 +39,10 @@ freq = df_concat['region_readid'].value_counts()
 items = freq[freq == 6].index
 df_concat_overlap = df_concat[df_concat['region_readid'].isin(items)]
 print(df_concat_overlap['model-cov'].value_counts(ascending=True))
+print(df_concat_overlap.head())
 
 # # CALCULATE MEDIAN OVERLAP PER MODEL
+print(f'\n')
 print(f'median score per model')
 print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["score"].median()}')
 print(f'DNN c5: {df_concat_overlap[df_concat_overlap["model-cov"] == "c5"]["score"].median()}')
@@ -48,6 +50,13 @@ print(f'DNN c10: {df_concat_overlap[df_concat_overlap["model-cov"] == "c10"]["sc
 print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["score"].median()}')
 print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["score"].median()}')
 print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["score"].median()}')
+
+print(f'Cycas 3x: {df_concat_overlap[(df_concat_overlap["model-cov"] == "Cycas Consensus") & (df_concat_overlap["read-cov"] == "3X")]["score"].mean()}')
+print(f'Cycas 10x: {df_concat_overlap[(df_concat_overlap["model-cov"] == "Cycas Consensus") & (df_concat_overlap["read-cov"] == "10X")]["score"].mean()}')
+print(f'Cycas 20+x: {df_concat_overlap[(df_concat_overlap["model-cov"] == "Cycas Consensus") & (df_concat_overlap["read-cov"] == "20+X")]["score"].mean()}')
+print(f'DNN c5 3x: {df_concat_overlap[(df_concat_overlap["model-cov"] == "c5") & (df_concat_overlap["read-cov"] == "3X")]["score"].mean()}')
+
+print(f'\n')
 
 print(f'median q score per model')
 print(f'Cycas: {df_concat_overlap[df_concat_overlap["model-cov"] == "Cycas Consensus"]["q_score"].median()}')
@@ -73,50 +82,52 @@ print(f'DNN c15: {df_concat_overlap[df_concat_overlap["model-cov"] == "c15"]["q_
 print(f'DNN c20: {df_concat_overlap[df_concat_overlap["model-cov"] == "c20"]["q_score"].mean()}')
 print(f'DNN c100: {df_concat_overlap[df_concat_overlap["model-cov"] == "c100"]["q_score"].mean()}')
 
+
+
 exit()
 
-# NR OF READS PER MODEL PER COVERAGE BIN NON OVERLAP
-plt.figure(1)
-fig, ax = plt.subplots(figsize=(16.7, 8.27))
-coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
-hue_order = ['Cycas Consensus', 'c5', 'c10', 'c15', 'c20', 'c100']
-ax = sns.countplot(data=df_concat, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19))
-labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16-20X', f'DNN 3-20X']
-ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
-plt.xlabel('Nr. copies per CyclomicsSeq read')
-plt.ylabel('Count')
-plt.savefig('plot1_nrreads_nonoverlap.png', bbox_inches='tight')
-plt.close()
+# # NR OF READS PER MODEL PER COVERAGE BIN NON OVERLAP
+# plt.figure(1)
+# fig, ax = plt.subplots(figsize=(16.7, 8.27))
+# coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
+# hue_order = ['Cycas Consensus', 'c5', 'c10', 'c15', 'c20', 'c100']
+# ax = sns.countplot(data=df_concat, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19))
+# labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16-20X', f'DNN 3-20X']
+# ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
+# plt.xlabel('Nr. copies per CyclomicsSeq read')
+# plt.ylabel('Count')
+# plt.savefig('plot1_nrreads_nonoverlap.png', bbox_inches='tight')
+# plt.close()
 
-# NR OF READS PER MODEL PER COVERAGE BIN OVERLAP
-plt.figure(1)
-fig, ax = plt.subplots(figsize=(16.7, 8.27))
-coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
-hue_order = ['Cycas Consensus', 'c5', 'c10', 'c15', 'c20', 'c100']
-ax = sns.countplot(data=df_concat_overlap, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19))
-plt.xlabel('Nr. copies per CyclomicsSeq read')
-plt.ylabel('Count')
-labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16-20X', f'DNN 3-20X']
-ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
-plt.savefig('plot1_nrreads_overlap.png', bbox_inches='tight')
-plt.close()
+# # NR OF READS PER MODEL PER COVERAGE BIN OVERLAP
+# plt.figure(1)
+# fig, ax = plt.subplots(figsize=(16.7, 8.27))
+# coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
+# hue_order = ['Cycas Consensus', 'c5', 'c10', 'c15', 'c20', 'c100']
+# ax = sns.countplot(data=df_concat_overlap, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19))
+# plt.xlabel('Nr. copies per CyclomicsSeq read')
+# plt.ylabel('Count')
+# labels = [f'Cycas Consensus', f'DNN 3-5X', f'DNN 6-10X', f'DNN 11-15X', f'DNN 16-20X', f'DNN 3-20X']
+# ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
+# plt.savefig('plot1_nrreads_overlap.png', bbox_inches='tight')
+# plt.close()
  
 # NR OF READS PER MODEL PER COVERAGE BIN OVERLAP ONLY CYCAS
 
 
 
-plt.figure(1)
-fig, ax = plt.subplots(figsize=(16.7, 8.27))
-coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
-hue_order = ['Cycas Consensus']
-ax = sns.countplot(data=df_concat_overlap, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19),)
-plt.xlabel('Nr. copies per CyclomicsSeq read')
-plt.ylabel('Count')
-labels = [f'Cycas Consensus']
-ax.get_legend().remove()
-# ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
-plt.savefig('plot1_nrreads_overlap_cycasonly.png', bbox_inches='tight')
-plt.close()
+# plt.figure(1)
+# fig, ax = plt.subplots(figsize=(16.7, 8.27))
+# coverage = ['3X','4X','5X','6X','7X','8X','9X','10X','11X','12X','13X', '14X','15X','16X','17X','18X','19X','20X','20+X']
+# hue_order = ['Cycas Consensus']
+# ax = sns.countplot(data=df_concat_overlap, x = 'read-cov', hue = 'model-cov', order = coverage, hue_order = hue_order, palette = sns.color_palette("Paired", 19),)
+# plt.xlabel('Nr. copies per CyclomicsSeq read')
+# plt.ylabel('Count')
+# labels = [f'Cycas Consensus']
+# ax.get_legend().remove()
+# # ax.legend(loc='upper right', bbox_to_anchor=(1,1), labels = labels, title = 'Model type')
+# plt.savefig('plot1_nrreads_overlap_cycasonly.png', bbox_inches='tight')
+# plt.close()
 
 
 

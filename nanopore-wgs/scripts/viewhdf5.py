@@ -20,6 +20,7 @@ from natsort import natsorted
 folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/predict_cyclomics_clean_maskedrefbase'
 # folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_muts_hdf5'
 folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_wgs_hdf5_maskedrefbase'
+folder = '/hpc/compgen/projects/gw_cfdna/snv_qs/nanopore-wgs/data/cyclomics_wgs_hdf5_maskedrefbase'
 
 cnn_region1 = 0
 cnn_region2 = 0
@@ -53,32 +54,32 @@ for file in paths:
         #         cnn_region4 += nr
         #     if 'region5' in file:
         #         cnn_region5 += nr
-        if 'dnn' in file:
-            if 'region1' in file:
-                dnn_region1 += nr
-            if 'region2' in file:
-                dnn_region2 += nr
-            if 'region3' in file:
-                dnn_region3 += nr
-            if 'region4' in file:
-                dnn_region4 += nr
-            if 'region5' in file:
-                dnn_region5 += nr  
+        # if 'dnn' in file:
+        #     if 'region1' in file:
+        #         dnn_region1 += nr
+        #     if 'region2' in file:
+        #         dnn_region2 += nr
+        #     if 'region3' in file:
+        #         dnn_region3 += nr
+        #     if 'region4' in file:
+        #         dnn_region4 += nr
+        #     if 'region5' in file:
+        #         dnn_region5 += nr  
 
         # for i in p.keys():
         #     a = i 
         # x = p[a][()]
         # print(x.shape)
 
-print(f'cnn region1: {cnn_region1}')
-print(f'cnn region2: {cnn_region2}')
-print(f'cnn region3: {cnn_region3}')
-print(f'cnn region4: {cnn_region4}')
-print(f'cnn region5: {cnn_region5}')
-print(f'dnn region1: {dnn_region1}')
-print(f'dnn region2: {dnn_region2}')
-print(f'dnn region3: {dnn_region3}')
-print(f'dnn region4: {dnn_region4}')
-print(f'dnn region5: {dnn_region5}')
+# print(f'cnn region1: {cnn_region1}')
+# print(f'cnn region2: {cnn_region2}')
+# print(f'cnn region3: {cnn_region3}')
+# print(f'cnn region4: {cnn_region4}')
+# print(f'cnn region5: {cnn_region5}')
+# print(f'dnn region1: {dnn_region1}')
+# print(f'dnn region2: {dnn_region2}')
+# print(f'dnn region3: {dnn_region3}')
+# print(f'dnn region4: {dnn_region4}')
+# print(f'dnn region5: {dnn_region5}')
 
 print(f'total: {total}')
