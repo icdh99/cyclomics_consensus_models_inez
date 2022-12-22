@@ -48,3 +48,54 @@ Map: nanopore-wgs/scripts/cyclomics_wgs/map_score.sh
 Cycas Consensus files: /hpc/compgen/projects/gw_cfdna/gw_cyclomics/analysis/lchen/cycloseq-output/HC02_CYC36-20ng/bams/HC02_CYC36-20ng.tagged.bam
 
 Cycas Consensus files filtered for overlapping SNPs and indels: nanopore-wgs/data/cyclomics_wgs_cons_intersect/cons_gwcycl_intersect.sorted.bam
+
+
+## Data folders
+### Model training/testing
+nanopore-wgs/rel8: mapped reads to chr18 from Nanopore T2T dataset used for sample generation. Forward reads only. 
+
+nanopore-wgs/data/traintest: samples for DNN training, testing and hyperparameter optimization
+
+nanopore-wgs/data/ref_per_chromosome: used for generation of samples
+
+### CyclomicsSeq dataset A
+/hpc/compgen/projects/gw_cfdna/snv_qs/cyclomics_predict: mapped CyclomicsSeq reads and vcf files used for generation of input samples
+
+nanopore-wgs/data/predict_cyclomics_clean_maskedrefbase: input samples generated from mapped CyclomicsSeq reads 
+
+nanopore-wgs/data/predict_cyclomics_clean_fastq_maskedrefbase: sequences predicted by each model 
+
+nanopore-wgs/data/predict_cyclomics_clean_bam_maskedrefbase: mapped sequences predicted by each model
+
+
+### CyclomicsSeq dataset B
+nanopore-wgs/data/cyclomics_muts_vcf_perregion: vcf files used for generation of input samples 
+
+nanopore-wgs/data/cyclomics_muts_bam_perregion: mapped CyclomicsSeq reads used as input to generate samples 
+
+nanopore-wgs/data/cyclomics_muts_hdf5: input samples generated from mapped CyclomicsSeq reads 
+
+nanopore-wgs/data/cyclomics_muts_fastq: sequences predicted by each model 
+
+nanopore-wgs/data/cyclomics_muts_bam_output: mapped sequences predicted by each model
+
+
+### CyclomicsSeq dataset C
+nanopore-wgs/data/cyclomics_wgs_bam_input: mapped CyclomicsSeq reads used as input to generate samples 
+
+nanopore-wgs/data/cyclomics_wgs_hdf5_maskedrefbase:  input samples generated from mapped CyclomicsSeq reads 
+
+nanopore-wgs/data/cyclomics_wgs_fastq_maskedrefbase: equences predicted by each model 
+
+nanopore-wgs/data/cyclomics_wgs_bam_output_maskedrefbase: mapped sequences predicted by each model
+
+nanopore-wgs/data/cyclomics_wgs_bam_output_maskedrefbase_intersect: mapped sequences predicted by each model without reads overlapping with known SNPs or indels
+
+nanopore-wgs/data/cyclomics_wgs_cons_intersect: Cycas Consensus sequences without reads overlapping with known SNPs or indels
+
+
+
+
+
+
+
